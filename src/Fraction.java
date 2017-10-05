@@ -1,43 +1,66 @@
-/**
- * Created by t00196165 on 28/09/2017.
- */
+
+package fraction;
+
+
 public class Fraction {
-    int numerator,denominator;
 
-    public Fraction()
+    private int Numerator, Denominater;
+    int numResult, denomResult;
+    public void setNumerator(int Numerator)
     {
-       // ...
+        this.Numerator = Numerator;
     }
-
-    public Fraction(int x,int y)
+    
+    public void setDenominator(int Denominator)
     {
-        numerator = x;
-        denominator = y;
+        this.Denominater = Denominator;
     }
-
-    public Fraction add(Fraction f)
+    
+    public int getNumerator()
     {
-        int numeratorResult, denomResult;
-
-        numeratorResult = this.numerator*f.denominator + this.denominator*f.numerator;
-        denomResult = this.denominator * f.denominator;
-
-        return new Fraction(numeratorResult,denomResult);
+        return Numerator;
     }
-
+    
+    public int getDenominator()
+    {
+        return Denominater;
+    }  
+    
+    public Fraction sub(Fraction f1,Fraction f2)
+    {
+        setNumerator(f1.Numerator*f2.Denominater - f1.Denominater*f2.Numerator);
+        setDenominator(f1.Denominater * f2.Denominater);
+        Fraction fAns = new Fraction(getNumerator(), getDenominator());
+        return fAns;
+    }
+    
+    public Fraction add(Fraction f1,Fraction f2)
+    {
+        setNumerator(f1.Numerator*f2.Denominater + f1.Denominater*f2.Numerator);
+        setDenominator(f1.Denominater * f2.Denominater);
+        Fraction fAns = new Fraction(getNumerator(), getDenominator());
+        return fAns;
+    }
+    
     public String toString()
     {
-        return numerator + "/" + denominator;
+        String Output = (getNumerator() + "/" + getDenominator());
+        return Output;
+    }
+        public Fraction()
+    {
+        
+        setNumerator(0);
+        setDenominator(1);
+        
     }
 
-    public static void main(String[] args) {
-        Fraction f1 = new Fraction(1,6);
-        Fraction f2 = new Fraction(2,6);
-
-        Fraction result = f1.add(f2);
-        System.out.println(result);
-
-        Fraction f3 = new Fraction();
-        System.out.println(f3);
+    public Fraction(int x, int y)
+    {
+        
+        setNumerator(x);
+        setDenominator(y);
+        
     }
+    
 }
