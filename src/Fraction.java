@@ -1,11 +1,9 @@
-
 package fraction;
 
 
 public class Fraction {
 
     private int Numerator, Denominater;
-    int numResult, denomResult;
     public void setNumerator(int Numerator)
     {
         this.Numerator = Numerator;
@@ -26,18 +24,34 @@ public class Fraction {
         return Denominater;
     }  
     
-    public Fraction sub(Fraction f1,Fraction f2)
+    public Fraction sub(Fraction f2)
     {
-        setNumerator(f1.Numerator*f2.Denominater - f1.Denominater*f2.Numerator);
-        setDenominator(f1.Denominater * f2.Denominater);
+        setNumerator(this.Numerator*f2.Denominater - this.Denominater*f2.Numerator);
+        setDenominator(this.Denominater * f2.Denominater);
         Fraction fAns = new Fraction(getNumerator(), getDenominator());
         return fAns;
     }
     
-    public Fraction add(Fraction f1,Fraction f2)
+    public Fraction add(Fraction f2)
     {
-        setNumerator(f1.Numerator*f2.Denominater + f1.Denominater*f2.Numerator);
-        setDenominator(f1.Denominater * f2.Denominater);
+        setNumerator(this.Numerator*f2.Denominater + this.Denominater*f2.Numerator);
+        setDenominator(this.Denominater * f2.Denominater);
+        Fraction fAns = new Fraction(getNumerator(), getDenominator());
+        return fAns;
+    }
+    
+    public Fraction multi(Fraction f2)
+    {
+        setNumerator(this.Numerator*f2.Numerator);
+        setDenominator(this.Denominater * f2.Denominater);
+        Fraction fAns = new Fraction(getNumerator(), getDenominator());
+        return fAns;
+    }
+    
+    public Fraction div(Fraction f2)
+    {
+        setNumerator(this.Numerator*f2.Denominater);
+        setDenominator(this.Denominater * f2.Numerator);
         Fraction fAns = new Fraction(getNumerator(), getDenominator());
         return fAns;
     }
